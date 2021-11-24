@@ -1,0 +1,26 @@
+all books
+<h2>seacrh books</h2>
+<form action="/books" method="GET">
+    <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="<%= searchOptions.title %>">
+    </div>
+
+    <div>
+        <label for="date">Publish After</label>
+        <input type="date" name="publishedAfter" id="publishedAfter" value="<%= searchOptions.publishedAfter %>">
+    </div>
+    <div>
+        <label for="date">Publish Before</label>
+        <input type="date" name="publishedBefore" id="publishedBefore" value="<%= searchOptions.publishedBefore %>">
+    </div>
+
+<button type="submit">Search</button>
+</form>
+<div>
+    <% books.forEach(book =>{ %>
+        <a href="/books/<%= book.id %>">
+      <img src="<%= book.coverPathImage %>" alt="book cover" height="150" width="100" >
+    </a>
+    <% }) %>
+</div>
